@@ -151,7 +151,7 @@ function Home() {
   return (
     <main className="max-w-4xl mx-auto text-base md:text-2xl">
       <Head>
-        <title>Cranes (for special wallets)</title>
+        <title>Rustaceans</title>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -160,18 +160,13 @@ function Home() {
 
       <div className="p-5 md:p-16">
         <header className="leading-normal">
-          <h1 className="md:text-8xl font-bold md:font-thin">Cranes</h1>
+          <h1 className="md:text-8xl font-bold md:font-thin">Rustaceans</h1>
           <h2 className="font-light tracking-tight md:text-4xl max-w-5xl italic">
-            Cranes are tiny, randomly generated, fully on-chain tokens of luck
-            for{" "}
-            <span className="rainbow bg-clip-text text-transparent font-bold">
-              special*
-            </span>{" "}
-            wallets.
+            Rustaceans are a <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">*Cranes*</a></span>{" "} derivative project driving value back to Crane hodlers.
           </h2>
           <div className="h-2"></div>
           <p className="text-sm text-gray-700 dark:text-gray-400">
-            *All wallets are special to someone.
+            Rustaceans ❤️️ Crane hodlers
           </p>
         </header>
         <div className="h-8"></div>
@@ -186,7 +181,7 @@ function Home() {
                 onClick={craftForSelf}
                 className="rounded-full"
               >
-                Mint Crane (Ξ0.02)
+                Mint Rustacean (Ξ0.02)
               </MintButton>
 
               <div className="flex flex-col">
@@ -236,16 +231,16 @@ function Home() {
 
               <div className="text-sm space-y-2 leading-normal">
                 <p>
-                  <strong>Cranes are Ξ0.02</strong>{" "}
+                  <strong>Rustaceans are Ξ0.02</strong>{" "}
                 </p>
                 <p>
                   You can mint one for yourself or for a friend. The result will
-                  be different for each crane depending on its number and
+                  be different for each rustacean depending on its number and
                   destination address.
                 </p>
 
                 <p>
-                  {yearTotal}/1,000 cranes have been minted in{" "}
+                  {yearTotal}/1,000 rustaceans have been minted in{" "}
                   {new Date().getFullYear()}.
                 </p>
 
@@ -257,8 +252,8 @@ function Home() {
                 />
 
                 <p>
-                  If all 1,000 cranes are minted in a year, holders get to mint
-                  a <em>Special Edition Mega Luck</em> crane for free.
+                  If all 1,000 rustaceans are minted in a year, holders of both Cranes and Rustaceans get to mint
+                  a <em>Special Edition</em> [redacted] for free.
                 </p>
               </div>
             </div>
@@ -267,32 +262,41 @@ function Home() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3">
-        <img src="/last-67.svg" className="" />
+        {/* <img src="/last-67.svg" className="" />
         <img src="/last-1.svg" className="" />
         <img src="/last-13.svg" className="" />
         <img src="/last-4.svg" className="" />
         <img src="/last-7.svg" className="" />
-        <img src="/last-8.svg" className="" />
+        <img src="/last-8.svg" className="" /> */}
       </div>
 
       <div className="p-5 md:p-16">
         <div className="space-y-4 md:space-y-8 font-light">
           <h2 className="md:text-8xl font-thin">FAQ</h2>
           <div>
-            <H4>Who's behind Cranes?</H4>
+            <H4>Who's behind Rustaceans?</H4>
             <p>
-              Cranes are designed and coded by{" "}
+              Rustaceans are designed and coded by{" "}
+              <a
+                href="https://andreasbigger.com"
+                className="text-blue-500 underline"
+              >
+                Andreas Bigger
+              </a>
+              {" "}
+              .
+              But inspiration is derived entirely from
               <a
                 href="https://mikkelmalmberg.com"
                 className="text-blue-500 underline"
               >
                 Mikkel Malmberg
               </a>
-              .
+              's <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">*Cranes*</a></span>{" "} project.
             </p>
           </div>
           <div>
-            <H4>Why paper cranes?</H4>
+            <H4>Why paper "crabs" (rustaceans)?</H4>
             <p>
               From{" "}
               <A href="https://en.wikipedia.org/wiki/One_thousand_origami_cranes">
@@ -319,14 +323,14 @@ function Home() {
               ownership information and then links to an external service for
               the actual asset. This is mostly fine, however the service storing
               that asset may disappear or the data go corrupt. Probably not, but
-              maybe. Even if this website disappears at some point, Cranes will
+              maybe. Even if this website disappears at some point, Rustaceans will
               be around as long as the blockchain itself.
             </p>
           </div>
           <div>
-            <H4>How are the Cranes generated?</H4>
+            <H4>How are the Rustaceans generated?</H4>
             <p>
-              The Cranes are generated from the same SVG template, seeded with
+              The Rustaceans are generated from the same SVG template, seeded with
               random colors. It isn't true randomness, as we still expect the
               same crane to have the same colors every time we view it. So the
               colors are <em>*randomly*</em> chosen from a few seed values, that
@@ -344,9 +348,9 @@ function Home() {
             </p>
           </div>
           <div>
-            <H4>How are Cranes licensed?</H4>
+            <H4>How are Rustaceans licensed?</H4>
             <p>
-              Cranes, the contract code, IP and resulting assets are all <strong className='font-bold'>Public
+              Following the Cranes standard, Rustaceans, the contract code, IP and resulting assets are all <strong className='font-bold'>Public
               Domain</strong>. Feel free to build upon the project in any way you'd like.
             </p>
           </div>
@@ -357,11 +361,11 @@ function Home() {
           Etherscan
         </A>{" "}
         &bull;{" "}
-        <A href="https://opensea.io/collection/cranes-for-special-wallets">
+        <A href="https://opensea.io/collection/rustaceans-for-special-wallets">
           OpenSea
         </A>{" "}
-        &bull; <A href="https://github.com/mikker/cranes">GitHub</A> &bull;{" "}
-        <A href="https://twitter.com/mikker">Twitter</A> &bull; There's no
+        &bull; <A href="https://github.com/abigger87/rustaceans">GitHub</A> &bull;{" "}
+        <A href="https://twitter.com/andreasbigger">Twitter</A> &bull; There's no
         Discord
       </div>
     </main>

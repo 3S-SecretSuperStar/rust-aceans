@@ -19,7 +19,7 @@ contract Rustaceans is ERC721, ERC721Enumerable, Ownable {
   using Strings for uint256;
 
   uint256 public constant MAX_RUSTACEANS_PER_YEAR = 1000;
-  string public constant DESCRIPTION = "Rustaceans are tiny, randomly generated, fully on-chain tokens of luck for special wallets. Best to keep one around, just in case.";
+  string public constant DESCRIPTION = "Rustaceans are a Cranes derivative project driving value back to Crane Holders.";
 
   /// @dev price + developmentFee = 0.02 ether
   uint256 public price = 0.018 ether;
