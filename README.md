@@ -1,6 +1,6 @@
 # Rustaceans
 
-An extension project of (cranes.supply)[https://cranes.supply/].
+An extension project of [cranes.supply](https://cranes.supply/).
 
 Rustaceans is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -22,10 +22,23 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-
 ## Environment Variables
 
 Create a `.env` file in the root directory of your project and add the variables from the `.env.example` file.
+
+## Testing
+
+Run `npx hardhat test` to run all tests.
+
+## Deploying the contracts
+
+#### Rinkeby Testnet
+
+Run `npx hardhat run scripts/deploy-rinkeby.js --network rinkeby` to deploy the contracts to the Rinkeby testnet.
+
+#### Mainnet
+
+Run `npx hardhat run scripts/deploy-mainnet.js --network mainnet` to deploy the contracts to the Mainnet.
 
 ## Learn More
 
