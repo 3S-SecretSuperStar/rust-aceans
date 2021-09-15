@@ -5,6 +5,7 @@ const { beforeEach } = require("mocha");
 
 describe("Rustaceans", function () {
   let contract;
+  let cranes;
   let owner;
   let wallet1;
   let wallet2;
@@ -14,11 +15,11 @@ describe("Rustaceans", function () {
     const ColorsContract = await hre.ethers.getContractFactory("Colors");
     const colors = await ColorsContract.deploy();
 
-    // ** Deploy the Cranes Contract ** 
+    // ** Deploy the Cranes Contract **
     const CranesContract = await hre.ethers.getContractFactory("Cranes", {
       libraries: { Colors: colors.address },
     });
-    const cranes = await CranesContract.deploy();
+    cranes = await CranesContract.deploy();
 
     // ** Deploy the Rustaceans Contract **
     const RustaceansContract = await hre.ethers.getContractFactory("Rustaceans", {
@@ -38,6 +39,8 @@ describe("Rustaceans", function () {
   });
 
   it("has a grand total and a yearly total", async function () {
+    // ** First we need to mint a Crane
+    await cranes.mint(wallet1.address);
     expect(await contract.totalSupply()).to.equal(0);
     expect(await contract.currentYearTotalSupply()).to.equal(0);
     await contract.mint(owner.address);
@@ -46,11 +49,26 @@ describe("Rustaceans", function () {
   });
 
   it("can be minted by owner", async function () {
+    // ** First we need to mint a Crane
+    await cranes.mint(wallet1.address);
+    // ** Then we can mint a Rustacean
     await contract.mint(owner.address);
     expect(await contract.balanceOf(owner.address)).to.equal(1);
   });
 
+  it("throws when a enough cranes aren't minted", async function () {
+    const contractAsWallet = await contract.connect(wallet1);
+    expect(
+      contractAsWallet.craftForSelf({
+        value: ethers.utils.parseEther("1"),
+      })
+    ).to.be.revertedWith("ERC721: owner query for nonexistent token");
+  });
+
   it("can be crafted by anyone for themselves", async function () {
+    // ** First let's mint cranes
+    await cranes.mint(wallet2.address);
+    await cranes.mint(wallet2.address);
     const contractAsWallet = await contract.connect(wallet1);
     await contractAsWallet.craftForSelf({
       value: ethers.utils.parseEther("0.02"),
@@ -60,6 +78,8 @@ describe("Rustaceans", function () {
   });
 
   it("throws when price is too low", async function () {
+    // ** First we need to mint a Crane
+    await cranes.mint(wallet1.address);
     const contractAsWallet = await contract.connect(wallet1);
     expect(
       contractAsWallet.craftForSelf({
@@ -75,6 +95,9 @@ describe("Rustaceans", function () {
   });
 
   it("can be crafted by anyone for someone else", async function () {
+    // ** First let's mint cranes
+    await cranes.mint(wallet2.address);
+    await cranes.mint(wallet2.address);
     const contractAsWallet = await contract.connect(wallet1);
     const token = await contractAsWallet.craftForFriend(wallet2.address, {
       value: ethers.utils.parseEther("0.02"),
@@ -85,6 +108,10 @@ describe("Rustaceans", function () {
   });
 
   it("has a tokenUri", async function () {
+    // ** First let's mint cranes
+    await cranes.mint(wallet2.address);
+    await cranes.mint(wallet2.address);
+
     const i = 0;
     const token = await contract.mint(owner.address);
     const uri = await contract.tokenURI(i);
@@ -102,6 +129,10 @@ describe("Rustaceans", function () {
   });
 
   it("can update its price", async function () {
+    // ** First let's mint cranes
+    await cranes.mint(wallet2.address);
+    await cranes.mint(wallet2.address);
+
     const contractAsWallet = await contract.connect(wallet1);
     await contractAsWallet.craftForSelf({
       value: ethers.utils.parseEther("0.02"),
@@ -117,6 +148,9 @@ describe("Rustaceans", function () {
   });
 
   it("can update its developmentFee", async function () {
+    // ** First let's mint cranes
+    await cranes.mint(wallet1.address);
+    await cranes.mint(wallet1.address);
     const contractAsWallet = await contract.connect(wallet1);
     await contractAsWallet.craftForSelf({
       value: ethers.utils.parseEther("0.02"),

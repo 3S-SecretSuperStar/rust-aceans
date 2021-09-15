@@ -32,7 +32,7 @@ contract Rustaceans is ERC721, ERC721Enumerable, Ownable {
   mapping(uint256 => Counters.Counter) private _yearlyCounts;
   mapping(uint256 => uint256[3]) private _seeds;
 
-  constructor() ERC721("RUSTACEANS", "RUST") {}
+  constructor() ERC721("Rustaceans", "RUST") {}
 
   function _mint(address destination) private {
     require(currentYearTotalSupply() <= MAX_RUSTACEANS_PER_YEAR, "YEARLY_MAX_REACHED");
