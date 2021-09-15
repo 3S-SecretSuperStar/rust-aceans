@@ -25,7 +25,7 @@ contract Rustaceans is ERC721, ERC721Enumerable, Ownable {
   uint256 public price = 0.018 ether;
   uint256 public developmentFee = 0.002 ether;
 
-  /// @notice Cranes contract
+  /// @dev Cranes contract
   Cranes private _cranes;
 
   Counters.Counter private _tokenIdCounter;
@@ -95,7 +95,7 @@ contract Rustaceans is ERC721, ERC721Enumerable, Ownable {
 
   /// @dev OnlyOwner modifier
   /// @notice Sets the deployed Cranes Contract
-  /// @param cranesAddress The address of the deployed Cranes Contract
+  /// @param newAddress The address of the deployed Cranes Contract
   function setCranes(address newAddress) public onlyOwner {
     _cranes = Cranes(newAddress);
   }
