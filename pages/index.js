@@ -10,8 +10,8 @@ import debounce from "debounce";
 
 const contractAddress =
   process.env.NODE_ENV === "production"
-    ? "0xc3F5E8A98B3d97f19938E4673Fd97C7cfd155577"
-    : "0x426d1156D37e7b359f53cB22AF0Fb617b927b966";
+    ? process.env.DEPLOYED_MAINNET_CONTRACT_ADDRESS
+    : process.env.DEPLOYED_RINKEBY_CONTRACT_ADDRESS;
 
 const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
 const wcConnector = new WalletConnectConnector({
@@ -281,10 +281,8 @@ function Home() {
                 className="text-blue-500 underline"
               >
                 Andreas Bigger
-              </a>
-              {" "}
-              .
-              But inspiration is derived entirely from
+              </a>.
+              But inspiration is entirely derived from
               <a
                 href="https://mikkelmalmberg.com"
                 className="text-blue-500 underline"
@@ -356,7 +354,7 @@ function Home() {
         </div>
       </div>
       <div className="text-sm p-5 md:p-16">
-        <A href="https://etherscan.io/address/0xc3f5e8a98b3d97f19938e4673fd97c7cfd155577">
+        <A href={`https://etherscan.io/address/${contractAddress}`}>
           Etherscan
         </A>{" "}
         &bull;{" "}
