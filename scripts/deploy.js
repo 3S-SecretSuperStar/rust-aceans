@@ -1,15 +1,13 @@
 async function main() {
-  // We get the contract to deploy
   const Colors = await ethers.getContractFactory("Colors");
   const colors = await Colors.deploy();
+  console.log("Colors deployed:", colors.address);
 
-  const Cranes = await ethers.getContractFactory("Cranes", {
+  const Rustaceans = await ethers.getContractFactory("Rustaceans", {
     libraries: { Colors: colors.address },
   });
-  const cranes = await Cranes.deploy();
-
-  console.log("Colors deployed to:", colors.address);
-  console.log("Cranes deployed to:", cranes.address);
+  const rustaceans = await Rustaceans.deploy();
+  console.log("Rustaceans deployed:", rustaceans.address);
 }
 
 main()

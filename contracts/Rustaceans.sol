@@ -8,30 +8,47 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./Base64.sol";
 import "./Colors.sol";
+import "./Cranes.sol";
 
-contract Cranes is ERC721, ERC721Enumerable, Ownable {
+/// @notice This is an adaption of Mikkel's cranes.supply project Cranes.sol contract
+/// @notice All proceeds go to Cranes owners except for a small 10% fee to cover development costs
+/// @author Mikkel Malmberg (https://mikkelmalmberg.com) + Andreas Bigger (https://andreasbigger.com)
+contract Rustaceans is ERC721, ERC721Enumerable, Ownable {
   using Counters for Counters.Counter;
   using Colors for Colors.Color;
   using Strings for uint256;
 
-  uint256 public constant MAX_CRANES_PER_YEAR = 1000;
-  string public constant DESCRIPTION = "Cranes are tiny, randomly generated, fully on-chain tokens of luck for special wallets. Best to keep one around, just in case.";
+  uint256 public constant MAX_RUSTACEANS_PER_YEAR = 1000;
+  string public constant DESCRIPTION = "Rustaceans are tiny, randomly generated, fully on-chain tokens of luck for special wallets. Best to keep one around, just in case.";
 
-  uint256 public price = 0.02 ether;
+  /// @dev price + developmentFee = 0.02 ether
+  uint256 public price = 0.018 ether;
+  uint256 public developmentFee = 0.002 ether;
+
+  /// @notice Cranes contract
+  Cranes private _cranes;
 
   Counters.Counter private _tokenIdCounter;
   mapping(uint256 => Counters.Counter) private _yearlyCounts;
   mapping(uint256 => uint256[3]) private _seeds;
 
-  constructor() ERC721("Cranes", "CRNS") {}
+  constructor() ERC721("RUSTACEANS", "RUST") {}
 
   function _mint(address destination) private {
-    require(currentYearTotalSupply() <= MAX_CRANES_PER_YEAR, "YEARLY_MAX_REACHED");
+    require(currentYearTotalSupply() <= MAX_RUSTACEANS_PER_YEAR, "YEARLY_MAX_REACHED");
 
     uint256 tokenId = _tokenIdCounter.current();
     uint256 destinationSeed = uint256(uint160(destination)) % 10000000;
 
     _safeMint(destination, tokenId);
+
+    // Get the address of a crane owner
+    if (_cranes.ownerOf(tokenId) != address(0)) {
+      (bool success,) = _cranes.ownerOf(tokenId).call{value: price}("");
+      // TODO: emit an event if we fail to transfer `price` to the owner of the tokenId cranes owner
+    } else {
+      // TODO: Store that we have to send the eventual owner of cranes tokenId the price value
+    }
 
     uint256 year = getCurrentYear();
     _yearlyCounts[year].increment();
@@ -47,18 +64,40 @@ contract Cranes is ERC721, ERC721Enumerable, Ownable {
     _mint(destination);
   }
 
+  /// @dev Reverts if msg.value is not >= price + developmentFee
+  /// @notice Creates a new Rustacean for msg.sender
   function craftForSelf() public payable virtual {
-    require(msg.value >= price, "PRICE_NOT_MET");
+    require(msg.value >= price + developmentFee, "PRICE_NOT_MET");
     _mint(msg.sender);
   }
 
+  /// @dev Reverts if msg.value is not >= price + developmentFee
+  /// @notice Creates a new Rustacean for walletAddress
+  /// @param walletAddress The address to mint the Rustacean for
   function craftForFriend(address walletAddress) public payable virtual {
-    require(msg.value >= price, "PRICE_NOT_MET");
+    require(msg.value >= price + developmentFee, "PRICE_NOT_MET");
     _mint(walletAddress);
   }
 
+  /// @dev OnlyOwner modifier
+  /// @notice Sets the price
+  /// @param newPrice The new price
   function setPrice(uint256 newPrice) public onlyOwner {
     price = newPrice;
+  }
+
+  /// @dev OnlyOwner modifier
+  /// @notice Sets the development fee
+  /// @param newDevelopmentFee The new development fee
+  function setDevelopmentFee(uint256 newDevelopmentFee) public onlyOwner {
+    developmentFee = newDevelopmentFee;
+  }
+
+  /// @dev OnlyOwner modifier
+  /// @notice Sets the deployed Cranes Contract
+  /// @param cranesAddress The address of the deployed Cranes Contract
+  function setCranes(address newAddress) public onlyOwner {
+    _cranes = Cranes(newAddress);
   }
 
   function getCurrentYear() private view returns (uint256) {
