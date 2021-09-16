@@ -296,11 +296,11 @@ function Home() {
             </p>
           </div>
           <div>
-            <H4>Why paper "crabs" (rustaceans)?</H4>
+            <H4>Why rustaceans?</H4>
             <p>
               From{" "}
-              <A href="https://en.wikipedia.org/wiki/One_thousand_origami_cranes">
-                Wikipedia
+              <A href="https://excellup.com/kidsImage/panchtantra/cranecrab.aspx">
+                Crane and Crab
               </A>
               :
             </p>
@@ -311,6 +311,9 @@ function Home() {
               While he was enjoying the flight, his eyes fell on a huge heap of fish skeletons. He enquired about that heap from the crane.
               The crane told him the reality and said, “You should begin your last prayer because I am going to finish you off.”
             </blockquote>
+            {/* <blockquote className="pl-6 p-3 italic">
+              The crab was quick to react. He grabbed the crane’s neck in its strong claws and killed the crane instantly. That is how the greedy crane met its end.
+            </blockquote> */}
           </div>
           <div>
             <H4>
