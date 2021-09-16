@@ -44,13 +44,17 @@ Run `npx hardhat run scripts/deploy-rinkeby.js --network rinkeby` to deploy the 
 
 Run `npx hardhat run scripts/deploy-mainnet.js --network mainnet` to deploy the contracts to the Mainnet.
 
-#### Verifying Contracts
+## Verifying Contracts
 
 Since this is a 👷 hardhat 👷 project, we can use the [@nomiclabs/hardhat-etherscan](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) plugin to automatically verify our contracts with one simple command.
 
-On Rinkeby Network: `npx hardhat verify --network rinkeby <DEPLOYED_CONTRACT_ADDRESS>`
+#### Rinkeby Testnet
 
-On Mainnet: `npx hardhat verify --network mainnet <DEPLOYED_CONTRACT_ADDRESS>`
+Run: `npx hardhat verify --network rinkeby <DEPLOYED_CONTRACT_ADDRESS>`
+
+#### Mainnet
+
+Run: `npx hardhat verify --network mainnet <DEPLOYED_CONTRACT_ADDRESS>`
 
 ## Learn More
 
