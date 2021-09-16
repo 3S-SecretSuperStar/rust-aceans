@@ -4,6 +4,10 @@ An extension project of [cranes.supply](https://cranes.supply/).
 
 Rustaceans is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Inspiration
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Okay, I think I&#39;m ready to share. Here&#39;s my first homegrown NFT project: Cranes (for special wallets)<a href="https://t.co/u1ztYJSa89">https://t.co/u1ztYJSa89</a></p>&mdash; Mikkel Malmberg (@mikker) <a href="https://twitter.com/mikker/status/1438062157921464330?ref_src=twsrc%5Etfw">September 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
 ## Getting Started
 
 First, run the development server:
