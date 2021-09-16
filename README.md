@@ -6,7 +6,7 @@ Rustaceans is a [Next.js](https://nextjs.org/) project bootstrapped with [`creat
 
 ## Inspiration
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Okay, I think I&#39;m ready to share. Here&#39;s my first homegrown NFT project: Cranes (for special wallets)<a href="https://t.co/u1ztYJSa89">https://t.co/u1ztYJSa89</a></p>&mdash; Mikkel Malmberg (@mikker) <a href="https://twitter.com/mikker/status/1438062157921464330?ref_src=twsrc%5Etfw">September 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Okay, I think I&#39;m ready to share. Here&#39;s my first homegrown NFT project: Cranes (for special wallets)<a href="https://t.co/u1ztYJSa89">https://t.co/u1ztYJSa89</a></p>&mdash; Mikkel Malmberg (@mikker) <a href="https://twitter.com/mikker/status/1438062157921464330?ref_src=twsrc%5Etfw">September 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Getting Started
 
@@ -43,6 +43,14 @@ Run `npx hardhat run scripts/deploy-rinkeby.js --network rinkeby` to deploy the 
 #### Mainnet
 
 Run `npx hardhat run scripts/deploy-mainnet.js --network mainnet` to deploy the contracts to the Mainnet.
+
+#### Verifying Contracts
+
+Since this is a 👷 hardhat 👷 project, we can use the [@nomiclabs/hardhat-etherscan](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) plugin to automatically verify our contracts with one simple command.
+
+On Rinkeby Network: `npx hardhat verify --network rinkeby <DEPLOYED_CONTRACT_ADDRESS>`
+
+On Mainnet: `npx hardhat verify --network mainnet <DEPLOYED_CONTRACT_ADDRESS>`
 
 ## Learn More
 

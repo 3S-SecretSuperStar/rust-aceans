@@ -278,31 +278,30 @@ function Home() {
           <div>
             <H4>Who's behind Rustaceans?</H4>
             <p>
-              <span className="rustacean bg-clip-text text-transparent font-bold">Rustaceans</span> are designed and coded by{" "}
+              <span className="rustacean bg-clip-text text-transparent font-bold">Rustaceans</span> are created by{" "}
               <a
                 href="https://andreasbigger.com"
                 className="text-blue-500 underline"
               >
                 Andreas Bigger
-              </a>.
-              But inspiration is entirely derived from{" "}
+              </a>,
+              but source is adapted from{" "}
               <a
                 href="https://mikkelmalmberg.com"
                 className="text-blue-500 underline"
               >
                 Mikkel Malmberg
               </a>
-              's <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">*Cranes*</a></span>{" "} project.
+              's <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">Cranes</a></span>{" "} project.
             </p>
           </div>
           <div>
             <H4>Why rustaceans?</H4>
             <p>
-              From{" "}
+              Inspired by the old tale:{" "}
               <A href="https://excellup.com/kidsImage/panchtantra/cranecrab.aspx">
                 Crane and Crab
               </A>
-              :
             </p>
             <blockquote className="pl-6 p-3 italic">
               One day, the crane thought that he had had enough of fish and he should eat something else to change his taste.
@@ -352,7 +351,7 @@ function Home() {
           <div>
             <H4>How are Rustaceans licensed?</H4>
             <p>
-              Following the Cranes standard, Rustaceans, the contract code, IP and resulting assets are all <strong className='font-bold'>Public
+              Following the <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">Cranes</a></span>{" "} standard, Rustaceans, the contract code, IP and resulting assets are all <strong className='font-bold'>Public
               Domain</strong>. Feel free to build upon the project in any way you'd like.
             </p>
           </div>
