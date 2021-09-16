@@ -40,6 +40,15 @@
       var(--red)
     );
   }
+
+  .rustacean {
+    background-color: black;
+    background-image: linear-gradient(
+      to right,
+      var(--yellow),
+      var(--orange)
+    );
+  }
 }
 
 @tailwind base;

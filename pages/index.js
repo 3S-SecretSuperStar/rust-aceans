@@ -159,14 +159,17 @@ function Home() {
 
       <div className="p-5 md:p-16">
         <header className="leading-normal">
-          <h1 className="md:text-8xl font-bold md:font-thin">Rustaceans</h1>
-          <h2 className="font-light tracking-tight md:text-4xl max-w-5xl italic">
-            Rustaceans are a <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">*Cranes*</a></span>{" "} derivative project driving value back to Crane hodlers.
-          </h2>
-          <div className="h-2"></div>
-          <p className="text-sm text-gray-700 dark:text-gray-400">
-            Rustaceans ❤️️ Crane hodlers
-          </p>
+            <h1 className="md:text-6xl font-bold md:font-thin py-8">Rustaceans</h1>
+            <h2 className="font-light tracking-tight md:text-2xl max-w-5xl italic">
+              <span className="rustacean bg-clip-text text-transparent font-bold">Rustaceans</span> are a <span className="rainbow bg-clip-text text-transparent font-bold"><a href="https://cranes.supply">Cranes</a></span>{" "} derivative project driving value back to Crane hodlers. A Crane's gotta eat too...
+            </h2>
+            <div className="h-2"></div>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
+              <span className="rainbow bg-clip-text text-transparent font-bold">Cranes</span> ❤️️ <span className="rustacean bg-clip-text text-transparent font-bold">Rustaceans</span>
+            </p>
+            {/* <p className="text-sm pt-1 italic text-gray-700 dark:text-gray-400">
+              Hey, a Crane has to eat too...
+            </p> */}
         </header>
         <div className="h-8"></div>
         <div>
@@ -271,18 +274,18 @@ function Home() {
 
       <div className="p-5 md:p-16">
         <div className="space-y-4 md:space-y-8 font-light">
-          <h2 className="md:text-8xl font-thin">FAQ</h2>
+          <h2 className="md:text-5xl font-thin">FAQ</h2>
           <div>
             <H4>Who's behind Rustaceans?</H4>
             <p>
-              Rustaceans are designed and coded by{" "}
+              <span className="rustacean bg-clip-text text-transparent font-bold">Rustaceans</span> are designed and coded by{" "}
               <a
                 href="https://andreasbigger.com"
                 className="text-blue-500 underline"
               >
                 Andreas Bigger
               </a>.
-              But inspiration is entirely derived from
+              But inspiration is entirely derived from{" "}
               <a
                 href="https://mikkelmalmberg.com"
                 className="text-blue-500 underline"
@@ -302,12 +305,11 @@ function Home() {
               :
             </p>
             <blockquote className="pl-6 p-3 italic">
-              An ancient Japanese legend promises that anyone who folds a
-              thousand origami cranes will be granted a wish by the gods. Some
-              stories believe one is granted happiness and eternal good luck,
-              instead of just one wish, such as long life or recovery from
-              illness or injury. This makes them popular gifts for special
-              friends and family.
+              One day, the crane thought that he had had enough of fish and he should eat something else to change his taste.
+              He asked a crab to hop on his back. The crab was quite happy to grab that offer.
+              When the crane was soaring high in the sky, the crab was amazed to see the vastness of the landscape.
+              While he was enjoying the flight, his eyes fell on a huge heap of fish skeletons. He enquired about that heap from the crane.
+              The crane told him the reality and said, “You should begin your last prayer because I am going to finish you off.”
             </blockquote>
           </div>
           <div>
@@ -329,7 +331,7 @@ function Home() {
             <p>
               The Rustaceans are generated from the same SVG template, seeded with
               random colors. It isn't true randomness, as we still expect the
-              same crane to have the same colors every time we view it. So the
+              same Rustacean to have the same colors every time we view it. So the
               colors are <em>*randomly*</em> chosen from a few seed values, that
               make it always return the same colors for the same seed, which is
               mint year + token id + destination address.
